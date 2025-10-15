@@ -29,7 +29,7 @@ print("🎻 바이올린 샘플 로딩 중...")
 print("=" * 50)
 
 for gesture, filename in GESTURE_NOTES.items():
-    # .wav 확장자 추가해서 경로 만들기
+    # .mp3 확장자 추가해서 경로 만들기
     filepath = os.path.join(SAMPLE_DIR, f"{filename}.mp3")
     
     if os.path.exists(filepath):
