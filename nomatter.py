@@ -105,13 +105,13 @@ def fingers_up(hand_landmarks, handedness_label):
     """Detect which fingers are up. Works for both palm or back facing the camera."""
     lm = hand_landmarks.landmark
 
-    # ✅ 손바닥/손등 구분하지 않고 엄지 방향 처리
+    # 손바닥/손등 구분하지 않고 엄지 방향 처리
     thumb_tip = lm[mp_hands.HandLandmark.THUMB_TIP].x
     thumb_ip = lm[mp_hands.HandLandmark.THUMB_IP].x
     if handedness_label == "Left":
-        thumb_up = thumb_tip > thumb_ip  # 오른손은 오른쪽으로 벌리면 True
+        thumb_up = thumb_tip > thumb_ip  # 왼손은 오른쪽으로 벌리면 True
     else:
-        thumb_up = thumb_tip < thumb_ip  # 왼손은 왼쪽으로 벌리면 True
+        thumb_up = thumb_tip < thumb_ip  # 오른손은 왼쪽으로 벌리면 True
 
     fingers = [thumb_up]
     for tip_id in (mp_hands.HandLandmark.INDEX_FINGER_TIP,
